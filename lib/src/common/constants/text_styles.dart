@@ -23,7 +23,7 @@ class TextStyles {
     color: AppColors.grey,
   );
   static const TextStyle buttonStyle = TextStyle(
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: FontWeight.w400,
     color: Colors.black,
   );

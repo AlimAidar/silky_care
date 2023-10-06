@@ -31,7 +31,7 @@ class _MyAppState extends State<MyApp> {
 
     return MaterialApp(
       theme: ThemeData(
-        primarySwatch: Colors.yellow,
+        primarySwatch: Colors.purple,
       ),
       initialRoute: route,
       onGenerateRoute: MetaRouter.onGenerateRoute,

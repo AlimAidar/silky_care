@@ -20,14 +20,14 @@ class _BannerScreenState extends State<BannerScreen> {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Spacer(),
-            Center(
-              child: Text(
-                'Logo',
-                style: TextStyles.header.copyWith(color: AppColors.white),
+            SizedBox(
+              height: 200,
+              child: Center(
+                child: Image.asset(
+                  'assets/logo/silky_logo.png',
+                ),
               ),
             ),
-            Spacer(),
             SizedBox(
               height: 250,
               child: PageView(
@@ -93,7 +93,7 @@ class _BannerScreenState extends State<BannerScreen> {
                         ),
                       ],
                     ),
-                  ),
+                  ),  
                 ],
               ),
             ),
@@ -113,7 +113,12 @@ class _BannerScreenState extends State<BannerScreen> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: ScButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(
+                    context,
+                    RoutingConst.auth,
+                  );
+                },
                 label: 'Войти',
               ),
             ),

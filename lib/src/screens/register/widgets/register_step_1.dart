@@ -70,13 +70,6 @@ class _RegisterStep1State extends State<RegisterStep1> {
           SizedBox(
             height: 12,
           ),
-          TextButton(
-            onPressed: widget.password,
-            child: Text(
-              'Забыл пароль?',
-              style: TextStyles.body.copyWith(fontSize: 15),
-            ),
-          ),
           Spacer(),
           ScButton(
             onPressed: isCheck ? widget.nextStep : null,
@@ -86,7 +79,7 @@ class _RegisterStep1State extends State<RegisterStep1> {
             height: 6,
           ),
           ScButton.text(
-            onPressed: () {},
+            onPressed: widget.backStep,
             label: 'Назад',
             textColor: Colors.black,
           ),

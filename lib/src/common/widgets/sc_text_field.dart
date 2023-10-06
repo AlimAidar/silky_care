@@ -5,7 +5,7 @@ import 'package:silky_care/src/common/constants/colors_constant.dart';
 class ScTextField extends StatefulWidget {
   const ScTextField({
     Key? key,
-    required this.placeholder,
+     this.placeholder,
     required this.lableText,
     this.prefixIcon,
     this.suffixIcon,
@@ -21,7 +21,7 @@ class ScTextField extends StatefulWidget {
     this.textInputType,
   }) : super(key: key);
 
-  final String placeholder;
+  final String? placeholder;
   final String lableText;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
@@ -45,7 +45,7 @@ class _ScTextFieldState extends State<ScTextField> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: AppColors.white, borderRadius: BorderRadius.circular(15)),
+          color: AppColors.grey2, borderRadius: BorderRadius.circular(15)),
       child: TextFormField(
         keyboardType: widget.textInputType,
         inputFormatters: widget.inputFormatters,
@@ -59,7 +59,7 @@ class _ScTextFieldState extends State<ScTextField> {
           enabledBorder: OutlineInputBorder(
               gapPadding: 2,
               borderSide: BorderSide(
-                color: widget.enableBorderColor ?? AppColors.purple,
+                color: widget.enableBorderColor ?? AppColors.grey,
               ),
               borderRadius: BorderRadius.circular(16)),
           prefixIconColor: Colors.black,
@@ -74,7 +74,7 @@ class _ScTextFieldState extends State<ScTextField> {
           hoverColor: Colors.black,
           labelText: widget.lableText,
           labelStyle:
-              widget.labelStyle ?? const TextStyle(color: AppColors.grey1),
+              widget.labelStyle ?? const TextStyle(color: AppColors.grey),
           prefixIcon: widget.prefixIcon,
           suffixIcon: widget.suffixIcon,
           border: OutlineInputBorder(
@@ -86,7 +86,7 @@ class _ScTextFieldState extends State<ScTextField> {
               15,
             ),
           ),
-          fillColor: Colors.amberAccent,
+          fillColor: AppColors.grey,
           hintText: widget.placeholder,
         ),
       ),
