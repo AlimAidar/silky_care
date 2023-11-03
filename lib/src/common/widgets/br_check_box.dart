@@ -73,7 +73,7 @@ class _ScCheckBoxState extends State<ScCheckBox> {
                 ),
                 value: checkBoxValue,
                 splashRadius: 0,
-                activeColor: AppColors.yellow,
+                activeColor: AppColors.purple,
                 onChanged: (bool? newValue) {
                   if (widget.readOnly) {
                     return;

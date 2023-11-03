@@ -22,6 +22,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     'assets/image/men.png',
     'assets/image/women.png',
   ];
+  int selectedIndex = 0;
   static const _timerDuration = 30;
   StreamController _timerStream = new StreamController<int>();
   int? timerCounter;
@@ -125,6 +126,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             RegisterStep3(
               controllerName: TextEditingController(),
               controllerOld: TextEditingController(),
+              selectedIndex: selectedIndex == 1,
               password: () {},
               nextStep: () {
                 pageViewController.animateToPage(
@@ -141,13 +143,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   itemBuilder: (context, index) {
                     return InkWell(
                       onTap: () {
-                        setState(() {});
+                        setState(() {
+                          selectedIndex = index;
+                        });
                       },
                       child: Container(
                         height: 100,
                         width: 150,
                         decoration: BoxDecoration(
-                          color: AppColors.purple,
+                          color: AppColors.grey2,
+                          border: selectedIndex == index
+                              ? Border.all(color: AppColors.purple, width: 5)
+                              : null,
                           borderRadius: BorderRadius.circular(16),
                           image: DecorationImage(
                             image: AssetImage(images[index]),

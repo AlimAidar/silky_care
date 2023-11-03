@@ -30,7 +30,7 @@ class _MyAppState extends State<MyApp> {
     // }
 
     return MaterialApp(
-      theme: ThemeData(
+      theme: ThemeData(  
         primarySwatch: Colors.purple,
       ),
       initialRoute: route,

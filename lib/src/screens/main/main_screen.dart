@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:silky_care/src/common/constants/colors_constant.dart';
+import 'package:silky_care/src/common/router/routing_const.dart';
+import 'package:silky_care/src/screens/basket/basket_screen.dart';
+import 'package:silky_care/src/screens/blog/blog_screen.dart';
+import 'package:silky_care/src/screens/daily_log/daily_log_screen.dart';
+import 'package:silky_care/src/screens/doctor/doctor_screen.dart';
 import 'package:silky_care/src/screens/home/home_screen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -18,6 +23,7 @@ class _MainScreenState extends State<MainScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+          elevation: 0,
           backgroundColor: Colors.white,
           leading: IconButton(
             icon: SvgPicture.asset('assets/icons/person_icon.svg'),
@@ -25,8 +31,16 @@ class _MainScreenState extends State<MainScreen> {
           ),
           actions: [
             IconButton(
-              icon: SvgPicture.asset('assets/icons/shop_icon.svg'),
-              onPressed: () {},
+              icon: Icon(
+                Icons.favorite_border,
+                color: AppColors.grey,
+              ),
+              onPressed: () {
+                Navigator.pushNamed(
+                  context,
+                  RoutingConst.favorite,
+                );
+              },
             ),
           ],
         ),
@@ -38,16 +52,14 @@ class _MainScreenState extends State<MainScreen> {
                   case 0:
                     return HomeScreen();
                   case 1:
-                    return Container(
-                      color: Colors.red,
-                    );
+                    return DailyLogScreen();
                   case 2:
-                    return Container(
-                      color: AppColors.grey,
-                    );
+                    return BlogScreen();
                   case 3:
-                    return Container(
-                      color: Colors.green,
+                    return DoctorScreen();
+                  case 4:
+                    return BasketScreen(
+                      isMain: true,
                     );
 
                   default:
@@ -128,6 +140,13 @@ class _MainScreenState extends State<MainScreen> {
             ),
             NavigationDestination(
               icon: SvgPicture.asset('assets/icons/FirstAid.svg'),
+              label: '',
+            ),
+            NavigationDestination(
+              icon: SvgPicture.asset(
+                'assets/icons/baske.svg',
+                color: Colors.black,
+              ),
               label: '',
             ),
           ],

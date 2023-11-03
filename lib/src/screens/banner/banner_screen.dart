@@ -93,7 +93,7 @@ class _BannerScreenState extends State<BannerScreen> {
                         ),
                       ],
                     ),
-                  ),  
+                  ),
                 ],
               ),
             ),

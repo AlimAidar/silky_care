@@ -15,6 +15,7 @@ class AdvertisingScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisSize: MainAxisSize.min,
             children: [
               SizedBox(
                 height: 150,
@@ -53,20 +54,20 @@ class AdvertisingScreen extends StatelessWidget {
                 height: 10,
               ),
               Expanded(
-                child: ListView.separated(
+                child: GridView.builder(
                   shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
+                  gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                    maxCrossAxisExtent: 200,
+                    childAspectRatio: 2 / 4,
+                    crossAxisSpacing: 15,
+                  ),
                   itemBuilder: (context, index) {
                     return CardWidget(
-                      image: 'assets/image/men.png',
-                      name: 'Название бренда',
-                      descriotions: 'Название продуктов и например 100мл',
-                      price: '1500 руб',
-                    );
-                  },
-                  separatorBuilder: (context, index) {
-                    return SizedBox(
-                      width: 12,
+                      onPressedPrice: () {},
+                      image: 'assets/image/photo3.png',
+                      name: 'acaasdadasdasdadsadasdasdasdcasc',
+                      descriotions: 'ascwadawdaefsweefwefwefewfasc',
+                      price: '1500 тг',
                     );
                   },
                   itemCount: 5,

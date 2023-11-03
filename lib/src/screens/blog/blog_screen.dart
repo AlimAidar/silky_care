@@ -1,25 +1,18 @@
-import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
-import 'package:silky_care/src/common/constants/colors_constant.dart';
 import 'package:silky_care/src/common/constants/text_styles.dart';
 import 'package:silky_care/src/common/router/routing_const.dart';
-import 'package:silky_care/src/common/widgets/sc_text_field.dart';
 import 'package:silky_care/src/screens/advertising/widgets/card_widget.dart';
 import 'package:silky_care/src/screens/home/widgets/category_widget.dart';
 
-class HomeScreen extends StatefulWidget {
-  HomeScreen({Key? key}) : super(key: key);
+class BlogScreen extends StatefulWidget {
+  BlogScreen({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<BlogScreen> createState() => _BlogScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
+class _BlogScreenState extends State<BlogScreen> {
+  int selectedIndex = 0;
   List<String> images = [
     'assets/image/photo1.png',
     'assets/image/photo2.png',
@@ -32,64 +25,30 @@ class _HomeScreenState extends State<HomeScreen> {
     'Крема',
     'Крема',
   ];
-
-  int selectedIndex = 0;
-  TextEditingController controller = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
+          padding: const EdgeInsets.symmetric(horizontal: 18),
           child: ListView(
-            shrinkWrap: true,
             children: [
-              SizedBox(
-                height: 14,
-              ),
-              Container(
-                height: 220,
-                child: Swiper(
-                  itemBuilder: (context, index) {
-                    return AnimatedContainer(
-                      height: 200,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: AssetImage(images[index]),
-                        ),
-                      ),
-                      duration: const Duration(
-                        milliseconds: 100,
-                      ),
-                      curve: Curves.bounceIn,
-                    );
-                  },
-                  pagination: SwiperPagination(),
-                  itemCount: images.length,
-                ),
-              ),
               SizedBox(
                 height: 20,
               ),
               Text(
-                'Каталог продуктов',
+                'Полезные блоги',
                 style: TextStyles.head,
               ),
               SizedBox(
-                height: 24,
+                height: 6,
               ),
-              ScTextField(
-                controller: controller,
-                prefixIcon: Icon(
-                  Icons.search,
-                  color: AppColors.grey,
-                ),
-                lableText: 'Поиск',
+              Text(
+                'Интересные и полезные блоги для вашего здоровья и красоты',
+                style: TextStyles.buttonStyle,
               ),
               SizedBox(
-                height: 24,
+                height: 20,
               ),
               SizedBox(
                 height: 35,
@@ -128,11 +87,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 itemBuilder: (context, index) {
                   return CardWidget(
-                    onPressedPrice: () {
-                      Navigator.pushNamed(
-                        context,
-                        RoutingConst.categoryDetail,
-                      );
+                    onPressedCard: () {
+                      Navigator.pushNamed(context, RoutingConst.blogDetail);
                     },
                     image: 'assets/image/photo3.png',
                     name: 'acaasdadasdasdadsadasdasdasdcasc',

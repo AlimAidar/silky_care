@@ -5,7 +5,7 @@ import 'package:silky_care/src/common/constants/colors_constant.dart';
 class ScTextField extends StatefulWidget {
   const ScTextField({
     Key? key,
-     this.placeholder,
+    this.placeholder,
     required this.lableText,
     this.prefixIcon,
     this.suffixIcon,
@@ -19,10 +19,13 @@ class ScTextField extends StatefulWidget {
     this.labelStyle,
     this.inputFormatters,
     this.textInputType,
+    this.borderRadius, this.backgroundColor,
   }) : super(key: key);
 
   final String? placeholder;
+  final Color? backgroundColor;
   final String lableText;
+  final double? borderRadius;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
   final Function(String)? onChanged;
@@ -45,7 +48,8 @@ class _ScTextFieldState extends State<ScTextField> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: AppColors.grey2, borderRadius: BorderRadius.circular(15)),
+          color: widget.backgroundColor ?? AppColors.grey2,
+          borderRadius: BorderRadius.circular(widget.borderRadius??15)),
       child: TextFormField(
         keyboardType: widget.textInputType,
         inputFormatters: widget.inputFormatters,
@@ -67,7 +71,7 @@ class _ScTextFieldState extends State<ScTextField> {
           focusedBorder: OutlineInputBorder(
             gapPadding: 2,
             borderSide: BorderSide(color: widget.borderColor ?? Colors.black),
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(widget.borderRadius ?? 15),
           ),
           focusColor: Colors.black,
           iconColor: Colors.black,
