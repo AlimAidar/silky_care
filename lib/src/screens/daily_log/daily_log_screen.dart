@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:silky_care/src/common/constants/colors_constant.dart';
 import 'package:silky_care/src/common/constants/text_styles.dart';
 import 'package:silky_care/src/common/router/routing_const.dart';
 import 'package:silky_care/src/common/widgets/sc_button.dart';
-import 'package:weekday_selector/weekday_selector.dart';
+import 'package:silky_care/src/screens/daily_log/widgets/week_widget.dart';
 
 class DailyLogScreen extends StatefulWidget {
   DailyLogScreen({Key? key}) : super(key: key);
@@ -14,7 +13,36 @@ class DailyLogScreen extends StatefulWidget {
 }
 
 class _DailyLogScreenState extends State<DailyLogScreen> {
-  List<bool> values = List.filled(7, false);
+  List<Map> items = [
+    {
+      'isSelected': false,
+      'week': 'П',
+    },
+    {
+      'isSelected': true,
+      'week': 'В',
+    },
+    {
+      'isSelected': false,
+      'week': 'С',
+    },
+    {
+      'isSelected': false,
+      'week': 'Ч',
+    },
+    {
+      'isSelected': false,
+      'week': 'П',
+    },
+    {
+      'isSelected': false,
+      'week': 'С',
+    },
+    {
+      'isSelected': false,
+      'week': 'В',
+    },
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -50,25 +78,26 @@ class _DailyLogScreenState extends State<DailyLogScreen> {
             height: 16,
           ),
           Container(
-            height: 140,
             decoration: BoxDecoration(color: Colors.grey.withOpacity(0.5)),
-            child: WeekdaySelector(
-              onChanged: (int day) {
-                // setState(() {
-                //   // Use module % 7 as Sunday's index in the array is 0 and
-                //   // DateTime.sunday constant integer value is 7.
-                //   final index = day % 7;
-                //   // We "flip" the value in this example, but you may also
-                //   // perform validation, a DB write, an HTTP call or anything
-                //   // else before you actually flip the value,
-                //   // it's up to your app's needs.
-                //   values[index] = !values[index];
-                // });
-              },
-              values: values,
-              selectedElevation: 15,
-              elevation: 5,
-              disabledElevation: 0,
+            padding: EdgeInsets.symmetric(horizontal: 3, vertical: 24),
+            child: SizedBox(
+              height: 130,
+              child: ListView.separated(
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  return WeekWidget(
+                    isSelected: items[index]['isSelected'],
+                    week: items[index]['week'],
+                  );
+                },
+                separatorBuilder: (context, index) {
+                  return SizedBox(
+                    width: 3,
+                  );
+                },
+                itemCount: items.length,
+              ),
             ),
           ),
           SizedBox(
@@ -95,7 +124,7 @@ class _DailyLogScreenState extends State<DailyLogScreen> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 10, vertical: 6),
+                            horizontal: 14, vertical: 10),
                         child: Row(
                           children: [
                             Icon(
@@ -121,7 +150,7 @@ class _DailyLogScreenState extends State<DailyLogScreen> {
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 10, vertical: 6),
+                            horizontal: 14, vertical: 10),
                         child: Row(
                           children: [
                             Icon(

@@ -47,7 +47,12 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
           ),
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(
+                  context,
+                  RoutingConst.supportChat,
+                );
+              },
               icon: SvgPicture.asset(
                 'assets/icons/support.svg',
               ),

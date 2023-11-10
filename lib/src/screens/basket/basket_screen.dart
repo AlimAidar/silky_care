@@ -46,7 +46,12 @@ class _BasketScreenState extends State<BasketScreen> {
                 ),
                 actions: [
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                        Navigator.pushNamed(
+                  context,
+                  RoutingConst.supportChat,
+                );
+                    },
                     icon: SvgPicture.asset(
                       'assets/icons/support.svg',
                     ),

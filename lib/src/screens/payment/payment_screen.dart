@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:silky_care/src/common/constants/colors_constant.dart';
+import 'package:silky_care/src/common/router/routing_const.dart';
 import 'package:silky_care/src/common/widgets/sc_button.dart';
 import 'package:silky_care/src/common/widgets/sc_text_field.dart';
 
@@ -29,7 +30,12 @@ class _PaymentScreenState extends State<PaymentScreen> {
           ),
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(
+                  context,
+                  RoutingConst.supportChat,
+                );
+              },
               icon: SvgPicture.asset(
                 'assets/icons/support.svg',
               ),

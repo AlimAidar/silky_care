@@ -10,6 +10,7 @@ class RoutingConst {
   static const String doctorDetail = 'main/doctor/doctor_detail/';
   static const String calendar = 'main/doctor/doctor_detail/calendar';
   static const String favorite = 'main/favorite/';
+  static const String supportChat = 'main/favorite/support';
   static const String blogDetail = 'main/blog/blog_detail';
   static const String auth = 'banner/auth/';
   static const String restorePassword = 'banner/auth/restore_password/';

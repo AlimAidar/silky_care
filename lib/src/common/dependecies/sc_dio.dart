@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:silky_care/environment_config.dart';
 
-class BrDio {
+class ScDio {
   Dio dio = Dio(BaseOptions(baseUrl: EnvironmentConfig.apiUrl));
 
   Dio get instance => dio;
@@ -21,7 +21,7 @@ class BrDio {
           // ),
         ]);
 
-  BrDio() {
+  ScDio() {
     dio.interceptors.addAll([
       BrDioInterceptor(),
       // LogInterceptor(

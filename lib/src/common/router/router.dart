@@ -17,6 +17,7 @@ import 'package:silky_care/src/screens/posts/posts_screen.dart';
 import 'package:silky_care/src/screens/register/register_screen.dart';
 import 'package:silky_care/src/screens/advertising/advertising_banner.dart';
 import 'package:silky_care/src/screens/restore_password/restore_password.dart';
+import 'package:silky_care/src/screens/support_chat/support_chat.dart';
 
 class MetaRouter {
   static Route<dynamic>? onGenerateRoute(RouteSettings routeSettings) {
@@ -123,6 +124,12 @@ class MetaRouter {
         return MaterialPageRoute(
           builder: (context) {
             return DailyLogCalendar();
+          },
+        );
+      case RoutingConst.supportChat:
+        return MaterialPageRoute(
+          builder: (context) {
+            return SupportChatScreen();
           },
         );
     }
