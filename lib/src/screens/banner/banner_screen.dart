@@ -63,14 +63,18 @@ class _BannerScreenState extends State<BannerScreen> {
                       children: [
                         Text(
                           'Отслеживайте состояние вашей кожи каждый день',
-                          style: TextStyles.header,
+                          style: TextStyles.header
+                              .copyWith(color: AppColors.white),
+                          textAlign: TextAlign.center,
                         ),
                         SizedBox(
                           height: 12,
                         ),
                         Text(
                           'Получайте скидки ежемесячно и также участвуйте в акциях',
-                          style: TextStyles.body,
+                          style:
+                              TextStyles.body.copyWith(color: AppColors.white),
+                          textAlign: TextAlign.center,
                         ),
                       ],
                     ),
@@ -82,14 +86,18 @@ class _BannerScreenState extends State<BannerScreen> {
                       children: [
                         Text(
                           'Отслеживайте состояние вашей кожи каждый день',
-                          style: TextStyles.header,
+                          style: TextStyles.header
+                              .copyWith(color: AppColors.white),
+                          textAlign: TextAlign.center,
                         ),
                         SizedBox(
                           height: 12,
                         ),
                         Text(
                           'Получайте скидки ежемесячно и также участвуйте в акциях',
-                          style: TextStyles.body,
+                          style:
+                              TextStyles.body.copyWith(color: AppColors.white),
+                          textAlign: TextAlign.center,
                         ),
                       ],
                     ),

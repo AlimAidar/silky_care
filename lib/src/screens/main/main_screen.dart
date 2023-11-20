@@ -27,7 +27,12 @@ class _MainScreenState extends State<MainScreen> {
           backgroundColor: Colors.white,
           leading: IconButton(
             icon: SvgPicture.asset('assets/icons/person_icon.svg'),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(
+                context,
+                RoutingConst.settings,
+              );
+            },
           ),
           actions: [
             IconButton(

@@ -10,13 +10,17 @@ import 'package:silky_care/src/screens/daily_log/daily_log_screen.dart';
 import 'package:silky_care/src/screens/daily_log_calendar/daily_log_calendar.dart';
 import 'package:silky_care/src/screens/doctor/doctor_screen.dart';
 import 'package:silky_care/src/screens/doctor_detail/doctor_detail_screen.dart';
+import 'package:silky_care/src/screens/edit_password/edit_password_screen.dart';
 import 'package:silky_care/src/screens/favorites/favorites_screen.dart';
 import 'package:silky_care/src/screens/main/main_screen.dart';
+import 'package:silky_care/src/screens/notifications/notifications_screen.dart';
 import 'package:silky_care/src/screens/payment/payment_screen.dart';
+import 'package:silky_care/src/screens/personal_information/personal_information_screen.dart';
 import 'package:silky_care/src/screens/posts/posts_screen.dart';
 import 'package:silky_care/src/screens/register/register_screen.dart';
 import 'package:silky_care/src/screens/advertising/advertising_banner.dart';
 import 'package:silky_care/src/screens/restore_password/restore_password.dart';
+import 'package:silky_care/src/screens/settings/settings_screen.dart';
 import 'package:silky_care/src/screens/support_chat/support_chat.dart';
 
 class MetaRouter {
@@ -130,6 +134,30 @@ class MetaRouter {
         return MaterialPageRoute(
           builder: (context) {
             return SupportChatScreen();
+          },
+        );
+      case RoutingConst.settings:
+        return MaterialPageRoute(
+          builder: (context) {
+            return SettingsScreen();
+          },
+        );
+      case RoutingConst.personalInformation:
+        return MaterialPageRoute(
+          builder: (context) {
+            return PersonalInformationScreen();
+          },
+        );
+      case RoutingConst.notification:
+        return MaterialPageRoute(
+          builder: (context) {
+            return NotificationsScreen();
+          },
+        );
+      case RoutingConst.editPassword:
+        return MaterialPageRoute(
+          builder: (context) {
+            return EditPasswordScreen();
           },
         );
     }

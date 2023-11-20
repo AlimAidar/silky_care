@@ -1,9 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:silky_care/src/common/constants/text_styles.dart';
 import 'package:silky_care/src/common/widgets/br_check_box.dart';
 import 'package:silky_care/src/common/widgets/sc_button.dart';
 import 'package:silky_care/src/common/widgets/sc_text_field.dart';
+import 'package:silky_care/src/screens/notifications/widgets/notification_widget.dart';
 
 class RegisterStep3 extends StatefulWidget {
   RegisterStep3({
@@ -29,6 +31,27 @@ class RegisterStep3 extends StatefulWidget {
 
 class _RegisterStep3State extends State<RegisterStep3> {
   bool isCheck = false;
+
+  DateTime date = DateTime(2016, 10, 26, 8, 15);
+  DateTime time = DateTime(2016, 5, 10, 22, 35);
+
+  void _showDialog(Widget child) {
+    showCupertinoModalPopup<void>(
+      context: context,
+      builder: (BuildContext context) => Container(
+        height: 216,
+        padding: const EdgeInsets.only(top: 6.0),
+        margin: EdgeInsets.only(
+          bottom: MediaQuery.of(context).viewInsets.bottom,
+        ),
+        color: CupertinoColors.systemBackground.resolveFrom(context),
+        child: SafeArea(
+          top: false,
+          child: child,
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +90,6 @@ class _RegisterStep3State extends State<RegisterStep3> {
               : Offstage(),
           widget.selectedIndex
               ? ScCheckBox(
-                
                   onChanged: (value) {
                     setState(() {
                       isCheck = value;
@@ -79,7 +101,6 @@ class _RegisterStep3State extends State<RegisterStep3> {
                     }
                   },
                   title: 'Включить менструальный цикл',
-                  
                 )
               : Offstage(),
           isCheck
@@ -88,16 +109,62 @@ class _RegisterStep3State extends State<RegisterStep3> {
                 )
               : Offstage(),
           isCheck
-              ? Row(
+              ? Column(
                   children: [
-                    Expanded(     
-                      child: ScTextField(lableText: 'Начало'),
+                    DatePickerItem(
+                      children: <Widget>[
+                        Icon(Icons.wb_sunny_outlined),
+                        const Text(
+                          'Утренний уход',
+                          style: TextStyles.head,
+                        ),
+                        CupertinoButton(
+                          onPressed: () => _showDialog(
+                            CupertinoDatePicker(
+                              initialDateTime: date,
+                              mode: CupertinoDatePickerMode.time,
+                              use24hFormat: true,
+                              showDayOfWeek: true,
+                              onDateTimeChanged: (DateTime newDate) {
+                                setState(() => date = newDate);
+                              },
+                            ),
+                          ),
+                          child: Text(
+                            '${date.hour}:${date.minute}',
+                            style: const TextStyle(
+                              fontSize: 22.0,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Expanded(
-                      child: ScTextField(lableText: 'Конец'),
+                    DatePickerItem(
+                      children: <Widget>[
+                        Icon(Icons.nightlight_outlined),
+                        const Text(
+                          'Вечерний уход',
+                          style: TextStyles.head,
+                        ),
+                        CupertinoButton(
+                          onPressed: () => _showDialog(
+                            CupertinoDatePicker(
+                              initialDateTime: time,
+                              mode: CupertinoDatePickerMode.time,
+                              use24hFormat: true,
+                              onDateTimeChanged: (DateTime newTime) {
+                                setState(() => time = newTime);
+                              },
+                            ),
+                          ),
+                          child: Text(
+                            '${time.hour}:${time.minute}',
+                            style: const TextStyle(
+                              fontSize: 22.0,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 )

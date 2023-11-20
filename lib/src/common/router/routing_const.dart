@@ -1,5 +1,9 @@
 class RoutingConst {
   static const String main = 'main/';
+  static const String settings = 'main/settings';
+  static const String editPassword = 'main/settings/edit_password';
+  static const String notification = 'main/settings/notification';
+  static const String personalInformation = 'main/settings/personal_information';
   static const String dailyLog = 'main/datli_log/';
   static const String dailyLogCalendar = 'main/datli_log/calendar';
   static const String categoryDetail = 'main/home/category_detal/';
